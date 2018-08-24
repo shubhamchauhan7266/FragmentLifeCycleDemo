@@ -5,14 +5,18 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.e("Second", "onCreate");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
 
         final FragmentManager fragmentManager = getSupportFragmentManager();
 
@@ -37,16 +41,44 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onResume() {
+        Log.e("Second", "onResume");
         super.onResume();
     }
 
     @Override
     protected void onStart() {
+        Log.e("Second", "onStart");
         super.onStart();
     }
 
     @Override
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
+    }
+
+    @Override
+    public void onPause() {
+        Log.e("Second", "onPause");
+        super.onPause();
+
+    }
+
+    @Override
+    public void onStop() {
+        Log.e("Second", "onStop");
+        super.onStop();
+    }
+
+    @Override
+    public void onDestroy() {
+        Log.e("Second", "onDestroy");
+        super.onDestroy();
+    }
+
+    @Override
+    protected void onRestart() {
+        Log.e("Second", "onRestart");
+
+        super.onRestart();
     }
 }
