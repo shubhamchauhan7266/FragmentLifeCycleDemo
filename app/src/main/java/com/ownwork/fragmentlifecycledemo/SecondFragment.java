@@ -1,14 +1,14 @@
 package com.ownwork.fragmentlifecycledemo;
 
 import android.app.Activity;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
+import android.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,13 +18,13 @@ import android.view.ViewGroup;
 public class SecondFragment extends Fragment {
 
 
-    private FragmentActivity mContext;
+    private AppCompatActivity mContext;
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
         Log.e("Second", "onAttach");
-        mContext = (FragmentActivity)context;
+        mContext = (AppCompatActivity)context;
     }
 
     @Override
@@ -48,7 +48,7 @@ public class SecondFragment extends Fragment {
         view.findViewById(R.id.bt_next).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final FragmentManager fragmentManager = mContext.getSupportFragmentManager();
+                final FragmentManager fragmentManager = mContext.getFragmentManager();
 
                 FragmentTransaction fragmentTransaction1 = fragmentManager.beginTransaction();
                 fragmentTransaction1.replace(R.id.content_view, new ThirdFragment(), "Third");
